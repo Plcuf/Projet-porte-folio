@@ -21,8 +21,8 @@ CREATE TABLE IF NOT EXISTS Has_Skill(
     Skill_Id INTEGER NOT NULL,
     Skill_Level INTEGER,
     PRIMARY KEY(User_Id, Skill_Id),
-    FOREIGN KEY(User_Id) REFERENCES Users,
-    FOREIGN KEY(Skill_Id) REFERENCES Skills
+    FOREIGN KEY(User_Id) REFERENCES Users(User_Id),
+    FOREIGN KEY(Skill_Id) REFERENCES Skills(Skill_Id)
 );
 
 CREATE TABLE IF NOT EXISTS Projects(
@@ -33,5 +33,5 @@ CREATE TABLE IF NOT EXISTS Projects(
     Project_Url VARCHAR(100),
     Project_Image VARCHAR(100),
     PRIMARY KEY(Project_Id),
-    FOREIGN KEY(User_Id) REFERENCES Users
+    FOREIGN KEY(User_Id) REFERENCES Users(User_Id)
 );
